@@ -1,10 +1,26 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-
-const routes: Routes = [];
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {RouterModule} from '@angular/router';
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  declarations: [],
+  imports: [
+    CommonModule,
+    RouterModule.forRoot([
+      {
+        path: 'crud',
+        loadChildren: './crud/crud.module#CrudModule'
+      },
+      {
+        path: 'transacoes',
+        loadChildren: './transacao/transacao.module#TransacaoModule'
+      }
+    ], {
+      useHash: true
+    })
+  ],
+  exports: [
+    RouterModule
+  ]
 })
 export class AppRoutingModule { }
